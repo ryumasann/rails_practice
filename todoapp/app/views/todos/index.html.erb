@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Todo List</h1>
 
-  <%= link_to "タスクを追加する", new_todo_path, class: "new-task" %>
+  <a class="new-task" href="/todos/new">タスクを追加する</
 
   <table>
     <thead>
@@ -11,15 +11,14 @@
       </tr>
     </thead>
     <tbody>
-      <% # ここは後から動的コンテンツに置き換える %>
+      <!-- ここは後から動的コンテンツに置き換える -->
       <tr>
         <td>サンプルタスク</td>
         <td>
-          <%= link_to "編集", "#", class: "edit" %>
-          <%= link_to "削除", "#", class: "delete" %>
+          <a class="edit" href="#">編集</a>
+          <a class="delete" href="#">削除</a>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-
