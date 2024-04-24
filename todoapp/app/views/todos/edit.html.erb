@@ -1,7 +1,6 @@
 <div class="container">
-  <h1>タスクの追加</h1>
-
-  <%= form_with model: @todo, url: "create" do |f| %>
+  <h1>タスクの編集</h1>
+  <%= form_with model: @todo, url: "/todos/#{@todo.id}" do |f| %>
     <%= f.text_field :title, placeholder: "タスクを入力する" %>
     <%= f.submit "保存する" %>
   <% end %>

@@ -1,0 +1,72 @@
+rails g controller todos new
+コントローラーとアクション名から以下のviewを作成する。
+app/views/todos/new.html.erb
+CSSファイルをapp/assets/stylesheets/ディレクトリに配置すればOK
+
+rails g controller <コントローラー名> <アクション名>
+rails g model <モデル名> <カラム名：型>
+
+存在するテーブルのカラムにインデックスを追加するとき
+以下の例は、usersテーブルのemailカラムにインデックスを追加する場合の流れです。
+手順１.インデックス追加用のマイグレーションファイルを作成する
+rails generate migration <マイグレーションファイル名>
+手順２．作成されたマイグレーションファイルにインデックスを定義する
+手順３．インデックスを定義したマイグレーションファイルを適用する
+
+存在するテーブルにカラムを追加したいとき
+以下の例は、usersテーブルにpassword_digestというカラムを追加するときです。
+
+手順１.インデックス追加用のマイグレーションファイルを作成する
+
+rails generate migration <マイグレーションファイル名> <追加するカラム名：型>
+command
+$ rails generate migration add_password_digest_to_users password_digest:string
+手順２．作成されたマイグレーションファイルを適用する
+https://qiita.com/higeaaa/items/96c708d01a3dbb161f20
+
+rails consoleでコンソールを開いた後、以下のコードを入力してください。
+
+Hoge.create(name: "中村",content:"掃除当番")
+Hoge.create(name: "木村",content:"放送係")
+Hoge.create(name: "西本",content:"委員長")
+Hoge.create(name: "内村",content:"体育係")
+これで、Hogeにデータを直接追加することができました。
+
+https://ichigick.com/rails-params/
+https://ichigick.com/rails-strong-parameter/
+
+.find(レコードを取得)
+https://pikawaka.com/rails/find
+
+ストロングパラメータ
+https://www.sejuku.net/blog/29763
+
+newとsaveの違い
+https://pikawaka.com/rails/create
+new/saveメソッドは、保存前や保存後にインスタンスを使って何か操作したい場合に使いましょう！
+createメソッドは、生成したインスタンスを操作する必要がなくインスタンス生成と保存を同時に行っても良い場合に使用します。
+
+モデルの変更処理一覧
+https://qiita.com/new1/items/b33255681c0d91f9bef9
+
+DB確認
+https://pikawaka.com/rails/select
+
+一覧表示
+https://rails-study.net/index-view/
+
+
+https://qiita.com/kobo_q/items/d3f002f9c9e8706100df
+自動でパスを選択してくれ、HTTPメソッドを指定する必要が無いこと
+コントローラーから渡された、ActiveRecordを継承するモデルのインスタンスが利用できること
+inputタグを用いないこと
+
+https://techtechmedia.com/form-with-rails/
+
+ViewからControllerに値を渡す方法
+https://blog.to-ko-s.com/view-to-controller/#i-8
+
+
+https://pikawaka.com/rails/strong_parameter
+
+Railsは、form_withに渡しているmodelのインスタンスの状態を見てcreateアクション(POST)やupdateアクション(PATCH)などの行き先を判断している
