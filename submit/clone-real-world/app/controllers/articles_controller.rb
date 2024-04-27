@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.includes(:tags).limit(10)
+    @articles = Article.joins(:tag).includes(:tag).limit(10)
     @tags = Tag.limit(10)
   end
 
   def show
-    @article = Article.includes(:tags).find_by(slug: params[:slug])
+    @article = Article.includes(:tag).find_by(slug: params[:slug])
   end
 
   def new
@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
     if @article.save
       flash[:success] = '投稿完了'
       redirect_to article_url(@article.slug)
+      # redirect_to article_url(@article.slug)
     else
       render 'new', status: :unprocessable_entity
     end
