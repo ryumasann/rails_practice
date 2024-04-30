@@ -7,6 +7,30 @@
     </div>
   </div>
 
+<nav class="navbar navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">conduit</a>
+    <ul class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <!-- Add "active" class when you're on that page" -->
+        <a class="nav-link active" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <%= link_to "New Article", new_article_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/settings"> <i class="ion-gear-a"></i>&nbsp;Settings </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile/eric-simons">
+          <img src="" class="user-pic" />
+          Eric Simons
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
   <div class="container page">
     <div class="row">
       <div class="col-md-9">
@@ -32,12 +56,11 @@
                 <i class="ion-heart"></i> 29
               </button>
             </div>
-            <a href="/article/<%= article.slug %>" class="preview-link">
-              <h1><%= article.title %></h1>
+            <%= link_to "New Article", article_path(id: article.id), class: "preview-link" %>
               <p><%= article.description %></p>
               <span>Read more...</span>
               <ul class="tag-list">
-                <% tags.each do |tag| %>
+                <% article.tags.each do |tag| %>
                   <li class="tag-default tag-pill tag-outline"><%= tag.name %></li>
                 <% end %>
               </ul>

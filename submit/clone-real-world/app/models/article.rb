@@ -1,4 +1,4 @@
 class Article < ApplicationRecord
-  has_many :tag_article
-  has_many :tag, through: :tag_article
+  has_many :tag_articles
+  has_many :tags, through: :tag_articles
 end
